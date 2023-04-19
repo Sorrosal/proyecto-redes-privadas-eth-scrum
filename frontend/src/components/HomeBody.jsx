@@ -1,4 +1,3 @@
-import ethereumcarrusel from "../images/ethereumcarrusel.jpg"; // with import
 export const HomeBody = () => {
   return (
     <div>
