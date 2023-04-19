@@ -17,10 +17,9 @@ export const HomeBody = () => {
             Networks
           </li>
           <li>
-            {" "}
             c. Task: El links nos saca la lista de redes debe tener un botón que
             permite añadir una red nueva. Se debe también de poder borrar una
-            red y también visualizar la red{" "}
+            red y también visualizar la red
           </li>
           <li>
             d. Task: Cuando visito una red me tiene que decir los nodos que
@@ -29,7 +28,7 @@ export const HomeBody = () => {
           </li>
           <li>
             e. Task: Cuando visualizo la red debe de poder obtener la lista de
-            los bloques{" "}
+            los bloques
           </li>
           <li>f. Task: Dado un bloque debo de poder ver las transacciones</li>
           <li>
@@ -38,7 +37,7 @@ export const HomeBody = () => {
           </li>
           <li>
             h. Task: Debo poder implementar un faucet para cargar monedas en mi
-            billetera metamask.{" "}
+            billetera metamask.
           </li>
           <li>
             i. Task: Hacer un traspaso de fondos de una cuenta del metamask a
