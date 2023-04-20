@@ -23,6 +23,9 @@ export const Header = () => {
         <Link to="/explorer" className="mx-3 text-decoration-none fs-6">
           Explorer
         </Link>
+        <Link to="/balance" className="mx-3 text-decoration-none fs-6">
+          Balance
+        </Link>
         <Link to="/faucet" className="mx-3 text-decoration-none fs-6">
           Faucet
         </Link>

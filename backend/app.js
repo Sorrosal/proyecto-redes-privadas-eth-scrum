@@ -5,7 +5,7 @@ const cors = require("cors")
 // https://expressjs.com/en/resources/middleware/morgan.html
 const morgan = require("morgan") 
 const app = express()
-
+const balance = require("./router-balance")
 const networks = require("./router-network")
 const node = require("./router-node")
 const faucet = require("./router-faucet")
@@ -16,7 +16,7 @@ app.use(cors())
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
+app.use("/balance", balance)
 app.use("/network", networks)
 app.use("/node", node)
 app.use("/faucet", faucet)

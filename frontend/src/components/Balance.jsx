@@ -41,7 +41,7 @@ export function Balance() {
 
           <span className="input-group-append">
             <button className="btn btn-outline-primary mx-3" type="submit">
-              <i className="fa fa-search"></i>
+              Buscar
             </button>
           </span>
         </form>
