@@ -8,7 +8,7 @@ export const Home = () => {
         <Header></Header>
       </div>
 
-      <div className="pt-5 vh-60">
+      <div className="pt-5 vh-60 pt-4">
         <Outlet></Outlet>
       </div>
       <div className="mt-5 vh-20"></div>

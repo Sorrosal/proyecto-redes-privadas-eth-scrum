@@ -28,11 +28,10 @@ export const NuevaRed = () => {
   };
   return (
     <div className="align-items-center justify-content-center text-center w-100">
-      {mensaje != "" ? <p className="alert alert-danger">{mensaje}</p> : ""}
+      {mensaje != "" ? <p className="alert alert-success">{mensaje}</p> : ""}
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4">
-          {" "}
           <form onSubmit={handleSubmit((data) => submit(data))}>
             <div className="row">
               <div>

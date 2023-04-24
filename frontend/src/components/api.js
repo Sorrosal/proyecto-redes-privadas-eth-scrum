@@ -28,3 +28,14 @@ export async function getBlock(bloque) {
     const data = await response.json();
     return data;
   }
+
+  export async function getListNodesByNetworkId(numero) {
+    const numeroRed = numero.substring(3);
+    const response = await fetch(
+      `http://localhost:3333/network/procesos/${numeroRed}`
+    );
+    const data = await response.json();
+    return datos;
+  };
+
+  

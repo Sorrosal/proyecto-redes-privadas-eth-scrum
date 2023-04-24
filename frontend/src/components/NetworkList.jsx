@@ -5,6 +5,7 @@ import { useState } from "react";
 const listaNetwork = async () => {
   const response = await fetch("http://localhost:3333/network");
   const datos = await response.json();
+  console.log(datos);
   return datos;
 };
 
@@ -28,22 +29,22 @@ export const NetworkList = () => {
     console.log("network", network);
     mutation.mutate(network);
   };
-  if (isLoading) return <p>Cargando</p>;
+  if (isLoading) return <p>Loading</p>;
   return (
     <div>
-      <h2>Lista de redes</h2>
+      <h4 className="my-4">NETWORKS</h4>
       <div className="text-end">
         <Link to="/nuevaRed" className="btn btn-primary mx-2">
-          + Añadir nueva red
+          + Add network
         </Link>
       </div>
 
-      <table className="table">
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th>Cadena</th>
-            <th>Cadena Id</th>
-            <th>Cuenta</th>
+            <th scope="col">NETWORK</th>
+            <th scope="col">CHAIN ID</th>
+            <th scope="col">ADDRESS</th>
             <th></th>
           </tr>
         </thead>
@@ -59,14 +60,18 @@ export const NetworkList = () => {
               </td>
 
               <td className="text-end">
-                <button className="btn btn-primary mx-2">
-                  <i className="fa fa-eye me-2"></i>Ver nodos
-                </button>
+                <Link
+                  to={`/nodesList/${item.numero}`}
+                  className="btn btn-primary mx-2"
+                >
+                  <i className="fa fa-eye me-2"></i>
+                  View nodes
+                </Link>
                 <button
                   className="btn btn-danger"
                   onClick={() => borrar(item.numero)}
                 >
-                  <i className="fa fa-trash me-2"></i>Borrar
+                  <i className="fa fa-trash"></i>
                 </button>
               </td>
             </tr>

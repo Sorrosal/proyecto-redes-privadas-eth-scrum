@@ -1,33 +1,79 @@
-import "../styles/footer.css";
+import logo from "../images/ethereum.png"; // with import
 export const Footer = () => {
   return (
-    <div className="d-flex justify-content-between mt-4 fixed-bottom px-5 bg-dark text-dark border-top text-white">
-      <div>
-        <ul className="nav flex-column mx-5 text-center">
-          <h4>Home</h4>
-          <li>Overview</li>
-          <li>Explore dApps</li>
-          <li>What make us Unique</li>
-        </ul>
-      </div>
+    <div className="fixed-bottom border-top border-dark">
+      <footer className="bg-white text-center text-lg-start text-dark">
+        <div className="container py-2">
+          <div className="row mt-4">
+            <div className="col-lg-3 col-md-6 mb-md-0">
+              <div className="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto">
+                <img src={logo} height="70" width="250" alt="" loading="lazy" />
+              </div>
 
-      <div>
-        <ul className="nav flex-column mx-5 text-center">
-          <h4>Technology</h4>
-          <li>Programs</li>
-          <li>Papers</li>
-          <li>Code</li>
-        </ul>
-      </div>
+              <p className="text-center">BUILD PRIVATE ETHEREUM NETWORKS</p>
 
-      <div>
-        <ul className="nav flex-column mx-5 text-center">
-          <h4>Ecosystem</h4>
-          <li>Wallets</li>
-          <li>Funds</li>
-          <li>Overview</li>
-        </ul>
-      </div>
+              <ul className="list-unstyled d-flex flex-row justify-content-center">
+                <li>
+                  <i className="fab fa-facebook-square mx-2"></i>
+                </li>
+                <li>
+                  <i className="fab fa-instagram mx-2"></i>
+                </li>
+                <li>
+                  <i className="fab fa-youtube mx-2"></i>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col-lg-3 col-md-6 mb-md-0">
+              <h5 className="text-uppercase mb-4">TERMS AND CONDITIONS</h5>
+
+              <ul className="list-unstyled">
+                <li className="mb-2">Test</li>
+                <li className="mb-2">Test</li>
+                <li className="mb-2">Test</li>
+              </ul>
+            </div>
+
+            <div className="col-lg-3 col-md-6 mb-md-0">
+              <h5 className="text-uppercase mb-4">PRIVACY</h5>
+
+              <ul className="list-unstyled">
+                <li className="mb-2">Test</li>
+                <li className="mb-2">Test</li>
+                <li className="mb-2">Test</li>
+              </ul>
+            </div>
+
+            <div className="col-lg-3 col-md-6 mb-md-0">
+              <h5 className="text-uppercase mb-4">CONTACT</h5>
+
+              <ul className="list-unstyled">
+                <li>
+                  <p>
+                    <i className="fas fa-map-marker-alt pe-2"></i> Spain
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <i className="fas fa-phone pe-2"></i>+ 34 666 666 666
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <i className="fas fa-envelope pe-2 mb-0"></i>
+                    contacto@codecrypto.com
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center">
+          © 2023 Copyright: Sergio, Miguel, Pablo
+        </div>
+      </footer>
     </div>
   );
 };
