@@ -1,16 +1,25 @@
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import { useState } from "react";
-export const NuevaRed = () => {
+import { useParams } from "react-router";
+export const NuevoNodo = () => {
   const [mensaje, setMensaje] = useState("");
+  const { numero } = useParams();
   const sendServer = async (datos) => {
-    const response = await fetch("http://localhost:3333/network/create", {
-      method: "POST",
-      body: JSON.stringify(datos),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    console.log(datos);
+    console.log(numero);
+    const numeroRed = numero.substring(3);
+
+    const response = await fetch(
+      `http://localhost:3333/network/add/${numeroRed}/${datos.node}`,
+      {
+        method: "POST",
+        body: JSON.stringify(datos),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const datosResponse = await response.json();
     setMensaje(JSON.stringify(datosResponse));
     console.log(datosResponse);
@@ -35,21 +44,11 @@ export const NuevaRed = () => {
           <form onSubmit={handleSubmit((data) => submit(data))}>
             <div className="row">
               <div>
-                <label>Cuenta</label>
-                <input
-                  className="form-control"
-                  defaultValue="0x9041142ec77b2f07032493Bf5e870Ae1D065c6F4"
-                  {...register("cuenta", { required: true })}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div>
-                <label>Numero de Red</label>
+                <label>Nº Node</label>
                 <input
                   defaultValue="1"
                   className="form-control"
-                  {...register("network", { required: true })}
+                  {...register("node", { required: true })}
                 />
               </div>
             </div>
@@ -58,7 +57,7 @@ export const NuevaRed = () => {
                 <input
                   type="submit"
                   className="btn btn-primary"
-                  value="Add network"
+                  value="Add node"
                 />
               </div>
             </div>

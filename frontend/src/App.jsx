@@ -8,6 +8,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { Explorer } from "./components/Explorer";
 import { Transaction } from "./components/Transaction";
 import { Faucet } from "./components/Faucet";
+import { NuevoNodo } from "./components/NuevoNodo";
 const queryClient = new QueryClient();
 export const App = () => {
   return (
@@ -26,6 +27,7 @@ export const App = () => {
             <Route path="/networkList" element={<NetworkList />}></Route>
             <Route path="/nodesList/:numero" element={<NodesList />}></Route>
             <Route path="/nuevaRed" element={<NuevaRed />}></Route>
+            <Route path="/nuevoNodo/:numero" element={<NuevoNodo />}></Route>
             <Route path="*" element="not found"></Route>
           </Route>
         </Routes>

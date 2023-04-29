@@ -316,6 +316,27 @@ router.get("/procesos/:network", async (req, res) => {
     res.send(output)
 })
 
+router.delete("/:network/:node", (req, res) => {
+    console.log(req.params.network);
+    console.log(req.params.node);
+    const NUMERO_NETWORK = parseInt(req.params.network)
+    const NUMERO_NODO = parseInt(req.params.node)
+    const NODO = `nodo${NUMERO_NODO}`
+    const NETWORK_DIR = `ETH/eth${NUMERO_NETWORK}`
+    const DIR_NODE = `${NETWORK_DIR}/${NODO}`
+
+    const pid = JSON.parse(fs.readFileSync(`${DIR_NODE}/paramsNodo.json`)).pid
+    try {
+        process.kill(pid)    
+    } catch (error) {
+        
+    }
+    if (fs.existsSync(`${DIR_NODE}`))
+        fs.rmSync(`${DIR_NODE}`, { recursive: true, })
+
+    res.send({pid})
+})
+
 router.get("/", async (req, res) => {
     createIfNotExists("ETH")    
     const redes = fs.readdirSync("ETH", { withFileTypes: true }).filter(i => !i.isFile())
