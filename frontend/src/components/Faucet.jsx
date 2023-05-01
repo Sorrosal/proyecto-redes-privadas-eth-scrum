@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-
+import { getBalance } from "./api";
 export const Faucet = () => {
   const [cuenta, setCuenta] = useState(null);
   const [tx, setTx] = useState(null);
+  const [balance, setBalance] = useState(null);
   useEffect(() => {
     window.ethereum &&
       window.ethereum
@@ -23,8 +24,14 @@ export const Faucet = () => {
     const response = await fetch(url);
     const json = await response.json();
     setTx(json);
+    queryBalance(cuenta);
   }
-
+  async function queryBalance(address) {
+    try {
+      const data = await getBalance(address);
+      setBalance(data.ethers);
+    } catch (error) {}
+  }
   return (
     <div>
       <div className="row my-4">
@@ -37,7 +44,14 @@ export const Faucet = () => {
           <button className="btn btn-primary" onClick={() => invocarFaucet()}>
             Send 0,1 ETH
           </button>
-          {cuenta && tx && <div>{JSON.stringify(tx, null, 4)}</div>}
+          {cuenta && tx && balance && (
+            <div>
+              {" "}
+              <p>
+                {cuenta} address balance is {balance} ETH
+              </p>
+            </div>
+          )}
         </div>
         <div className="col"></div>
       </div>
