@@ -37,7 +37,6 @@ export const NuevoNodo = () => {
   };
   return (
     <div className="align-items-center justify-content-center text-center w-100">
-      {mensaje != "" ? <p className="alert alert-success">{mensaje}</p> : ""}
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4">
@@ -65,6 +64,14 @@ export const NuevoNodo = () => {
         </div>
         <div className="col-4"></div>
       </div>
+      {mensaje != "" ? (
+        <div className="alert alert-success mt-2" role="alert">
+          NODE CREATED!<br></br>
+          {mensaje}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import logo from "../images/ethereum.png"; // with import
 export const Footer = () => {
   return (
-    <div className="fixed-bottom border-top border-dark">
+    <div className="fixed-bottom border-top border-top">
       <footer className="bg-white text-center text-lg-start text-dark">
         <div className="container py-2">
           <div className="row mt-4">
@@ -29,9 +29,9 @@ export const Footer = () => {
               <h5 className="text-uppercase mb-4">TERMS AND CONDITIONS</h5>
 
               <ul className="list-unstyled">
-                <li className="mb-2">Test</li>
-                <li className="mb-2">Test</li>
-                <li className="mb-2">Test</li>
+                <li className="mb-2">Introduction</li>
+                <li className="mb-2">Eligibility</li>
+                <li className="mb-2">Account</li>
               </ul>
             </div>
 
@@ -39,9 +39,9 @@ export const Footer = () => {
               <h5 className="text-uppercase mb-4">PRIVACY</h5>
 
               <ul className="list-unstyled">
-                <li className="mb-2">Test</li>
-                <li className="mb-2">Test</li>
-                <li className="mb-2">Test</li>
+                <li className="mb-2">EU and EEA Users’ Rights</li>
+                <li className="mb-2">Complaints</li>
+                <li className="mb-2">Questions</li>
               </ul>
             </div>
 

@@ -15,14 +15,5 @@ router.get("/address/:address", async (req, res)=> {
     }
     
 })
-router.get("/", async (req, res)=> {
-    try{
-        
-        res.send("Hola")
-    } catch (error) {
-        res.status(500).send({mensaje: error.message})
-    }
-    
-})
 
 

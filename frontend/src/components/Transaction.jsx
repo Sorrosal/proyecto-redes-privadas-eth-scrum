@@ -82,7 +82,11 @@ export function Transaction() {
         </div>
         <div className="col-3"></div>
 
-        {txOk && <p className="alert alert-succes">{txOk}</p>}
+        {txOk && (
+          <div className="alert alert-success mt-2" role="alert">
+            TRANSACTION {txOk} COMPLETED!
+          </div>
+        )}
         {txKo && <p>{txKo}</p>}
       </div>
     </div>

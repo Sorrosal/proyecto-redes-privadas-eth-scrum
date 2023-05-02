@@ -1,10 +1,10 @@
 const express = require("express")
 const router = express.Router()
-const fs = require("fs")
+
 var ps = require('ps-node');
 
+const fs = require("fs")
 const { exec, execSync, spawn, spawnSync } = require("child_process");
-const { send } = require("process");
 
 module.exports = router
 
@@ -317,8 +317,6 @@ router.get("/procesos/:network", async (req, res) => {
 })
 
 router.delete("/:network/:node", (req, res) => {
-    console.log(req.params.network);
-    console.log(req.params.node);
     const NUMERO_NETWORK = parseInt(req.params.network)
     const NUMERO_NODO = parseInt(req.params.node)
     const NODO = `nodo${NUMERO_NODO}`

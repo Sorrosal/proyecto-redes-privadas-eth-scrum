@@ -12,11 +12,11 @@ export const Faucet = () => {
         })
         .then((cuentas) => {
           setCuenta(cuentas[0]);
-          window.ethereum.on("accountChanged", (cuentas) => {
+          ethereum.on("accountsChanged", (cuentas) => {
             setCuenta(cuentas[0]);
           });
         });
-  }, []);
+  });
 
   async function invocarFaucet() {
     const url = `http://localhost:3333/faucet/address/${cuenta}`;
@@ -40,16 +40,14 @@ export const Faucet = () => {
       <div className="text-center my-2 row">
         <div className="col"></div>
         <div className="col">
-          <h4>Address: {cuenta}</h4>
+          <h5>Address: {cuenta}</h5>
           <button className="btn btn-primary" onClick={() => invocarFaucet()}>
             Send 0,1 ETH
           </button>
           {cuenta && tx && balance && (
-            <div>
-              {" "}
-              <p>
-                {cuenta} address balance is {balance} ETH
-              </p>
+            <div className="alert alert-success mt-2" role="alert">
+              ETH SENDED! <br></br>
+              {cuenta} balance is {balance} ETH
             </div>
           )}
         </div>
