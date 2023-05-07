@@ -13,7 +13,6 @@ export const NuevaRed = () => {
     });
     const datosResponse = await response.json();
     setMensaje(JSON.stringify(datosResponse));
-    console.log(datosResponse);
   };
   const mutation = useMutation(sendServer);
 

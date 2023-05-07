@@ -15,8 +15,6 @@ export const NodesList = () => {
   const { numero } = useParams();
   const { data, isLoading } = useQuery(["data"], () => listaNodes(numero));
   const sendServer = async (network, node) => {
-    console.log(network);
-    console.log(node);
     const response = await fetch(
       `http://localhost:3333/network/${network}/${node}`,
       {
@@ -24,7 +22,6 @@ export const NodesList = () => {
       }
     );
     const datosResponse = await response.json();
-    setMensaje(JSON.stringify(datosResponse));
   };
 
   const borrar = (network, node) => {

@@ -6,8 +6,6 @@ export const NuevoNodo = () => {
   const [mensaje, setMensaje] = useState("");
   const { numero } = useParams();
   const sendServer = async (datos) => {
-    console.log(datos);
-    console.log(numero);
     const numeroRed = numero.substring(3);
 
     const response = await fetch(
@@ -22,7 +20,6 @@ export const NuevoNodo = () => {
     );
     const datosResponse = await response.json();
     setMensaje(JSON.stringify(datosResponse));
-    console.log(datosResponse);
   };
   const mutation = useMutation(sendServer);
 

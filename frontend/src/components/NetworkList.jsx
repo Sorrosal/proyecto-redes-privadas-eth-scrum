@@ -5,28 +5,21 @@ import { useState } from "react";
 const listaNetwork = async () => {
   const response = await fetch("http://localhost:3333/network");
   const datos = await response.json();
-  console.log(datos);
   return datos;
 };
 
 export const NetworkList = () => {
-  const [mensaje, setMensaje] = useState("");
-
   const sendServer = async (network) => {
-    console.log(network);
     const response = await fetch(`http://localhost:3333/network/${network}`, {
       method: "DELETE",
     });
     const datosResponse = await response.json();
-    setMensaje(JSON.stringify(datosResponse));
-    console.log(datosResponse);
   };
   const mutation = useMutation(sendServer);
 
   const { data, isLoading } = useQuery(["redes"], listaNetwork);
 
   const borrar = (network) => {
-    console.log("network", network);
     mutation.mutate(network);
   };
   if (isLoading) return <p>Loading</p>;

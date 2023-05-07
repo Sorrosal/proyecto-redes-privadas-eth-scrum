@@ -17,7 +17,6 @@ export function Explorer() {
   });
 
   useEffect(() => {
-    console.log("use");
     queryLastBlock();
   }, []);
 
@@ -39,6 +38,8 @@ export function Explorer() {
     try {
       const data = await getBalance(address);
       setBalance(data.ethers);
+      setTypeSearch(1);
+      setTextSearch(address);
     } catch (error) {}
   }
 
@@ -58,9 +59,11 @@ export function Explorer() {
   async function queryLastBlock() {
     try {
       const data = await getLastBlock();
-      console.log(data);
       setLastBlock(data);
     } catch (error) {}
+  }
+  function viewBalance(address) {
+    queryBalance(address);
   }
 
   return (
@@ -92,7 +95,6 @@ export function Explorer() {
             ></input>
           </div>
           <div className="col-2">
-            {" "}
             <span className="input-group-append">
               <button className="btn btn-outline-primary mx-3" type="submit">
                 <i className="fa fa-search"></i>
@@ -102,17 +104,47 @@ export function Explorer() {
         </form>
       </div>
       <div className="row justify-content-center align-items-center col-auto">
-        {typeSearch == 1 && (
+        {typeSearch == 1 && balance && (
           <div className="my-2">
             <p>
               {textSearch} address balance is {balance} ETH
             </p>
           </div>
         )}
-        {typeSearch == 2 && (
+        {typeSearch == 2 && tx && (
           <div className="my-2">
             <h4>Transaction {textSearch}</h4>
             <pre>{JSON.stringify(tx, null, 2)}</pre>
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">FROM</th>
+                  <th scope="col">TO</th>
+                  <th scope="col">QUANTITY</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <button
+                      className="mx-3 btn btn-outline-primary"
+                      onClick={() => viewBalance(tx.from)}
+                    >
+                      {tx.from}
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      className="mx-3 btn btn-outline-primary"
+                      onClick={() => viewBalance(tx.to)}
+                    >
+                      {tx.to}
+                    </button>
+                  </td>
+                  <td>{tx.value}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         )}
         {typeSearch == 3 && (

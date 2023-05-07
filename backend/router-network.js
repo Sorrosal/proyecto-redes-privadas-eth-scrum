@@ -137,7 +137,6 @@ router.post("/create", (req, res) => {
     const comando = `geth --datadir ${DIR_NODE} init ${NETWORK_DIR}/genesis.json`
 
     const result = exec(comando, (error, stdout, stderr) => {
-        console.log("ejecutado")
         if (error) {
             res.send({ error })
             return
@@ -177,7 +176,6 @@ router.post("/create/:network/:node", (req, res) => {
     const comando = `geth --datadir ${DIR_NODE} init ${NETWORK_DIR}/genesis.json`
 
     const result = exec(comando, (error, stdout, stderr) => {
-        console.log("ejecutado")
         if (error) {
             res.send({ error })
             return
@@ -213,7 +211,6 @@ router.post("/add/:network/:node", (req, res) => {
     const comando = `geth --datadir ${DIR_NODE} init ${NETWORK_DIR}/genesis.json`
 
     const result = exec(comando, (error, stdout, stderr) => {
-        console.log("ejecutado")
         if (error) {
             res.send({ error })
             return
@@ -322,8 +319,7 @@ router.delete("/:network/:node", (req, res) => {
     const NODO = `nodo${NUMERO_NODO}`
     const NETWORK_DIR = `ETH/eth${NUMERO_NETWORK}`
     const DIR_NODE = `${NETWORK_DIR}/${NODO}`
-
-    const pid = JSON.parse(fs.readFileSync(`${DIR_NODE}/paramsNodo.json`)).pid
+    const pid = JSON.parse(fs.readFileSync(`${DIR_NODE}/paramsNodo.json`)).subproceso.pid
     try {
         process.kill(pid)    
     } catch (error) {
